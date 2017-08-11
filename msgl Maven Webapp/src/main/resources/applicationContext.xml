@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	<!-- 使用 annotation -->
+	<context:annotation-config />
+	<context:component-scan base-package="com.boco.msgl">  
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />    
+	</context:component-scan>
+	<!-- 使用此配置代码，spring会自动扫描包下的所有带@component注解的Class文件 @Component包括：@controller,@service,@repository和@component 
+		当分不清楚Class具体要做什么工作时，可以统一写成@component. @controller：一般写在控制层。 @service：一般写在服务层。 
+		@repository：一般写在持久层，也就是DAO。 @component （把普通pojo实例化到spring容器中，相当于配置文件中的<bean 
+		id="" class=""/> -->
+	<!-- 使用 annotation 自动注册bean,并检查@Controller, @Service, @Repository注解已被注入 -->
+	<!-- jdbc属性配置 -->
+	<context:property-placeholder
+		location="classpath:jdbc.properties" />
+
+	<!-- jdbc配置管理 -->
+	<import resource="applicationContext-persistence.xml" />
+
+	<!-- aop -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<!-- -->
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration  
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 设置 -->
+	<settings>
+		<!-- 数据库的下划线字段自动映射到bean中以驼峰命名的属性中 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<!-- 输出语句 -->
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+		<!-- <setting name="logImpl" value="LOG4J" /> -->
+	</settings>
+	<!-- 别名 -->
+	<typeAliases>
+		<!-- 批量定义别名 ，指定包名，自动扫描包中的类，别名即为类名，首字母大小写无所谓 -->
+		<package name="com.boco.msgl" />
+	</typeAliases>
+	<!-- mapping 文件路径配置，xml需要和mapper.java同一文件夹下面 -->
+	<mappers>
+		<package name="com.boco.msgl.modules.*.dao" />
+	</mappers>
+</configuration>

@@ -1,0 +1,58 @@
+<!-- 如果页面要用到ztree的，就引用此页面 -->
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<script>
+
+	var zTreeObj;
+
+	var setting = {
+		/* view: {
+			selectedMulti: false
+		}, */
+		check : {
+			enable : true
+		},
+		data : {
+			simpleData : {
+				enable : true,
+				idKey : 'id',
+				pIdKey : 'parentId',
+				rootPId : ''
+			}
+		}
+	}
+
+	/*在需要树的页面中调用此方法
+	url:远程获取nodes
+	checkedDataIds:需要勾选的node的ID数组
+	*/
+	function initTree(url, checkedDataIds) {
+		if (zTreeObj == null) {
+			$.get(url, function(data) {
+				zTreeNodes = JSON.parse(data)
+				zTreeObj = $.fn.zTree.init($(".ztree"), setting, zTreeNodes);
+				checkDefaultNode(checkedDataIds)
+			})
+		} else {
+			zTreeObj.checkAllNodes(false)
+			checkDefaultNode(checkedDataIds)
+		}
+	}
+
+	function checkDefaultNode(checkedDataIds) {
+		if (checkedDataIds != undefined && checkedDataIds != null) {
+			for (var i = 0; i < checkedDataIds.length; i++) {
+				var node = zTreeObj.getNodesByParam('id', checkedDataIds[i]);
+				zTreeObj.checkNode(node[0], true, false);
+			}
+		}
+	}
+	
+	function getCheckId(name){
+		var ret = {};
+		var nodes = zTreeObj.getCheckedNodes(true);
+		for(var i = 0; i < nodes.length; i++){
+			ret[name + '[' + i + '].id']=nodes[i].id
+		}
+		return ret;
+	}
+</script>

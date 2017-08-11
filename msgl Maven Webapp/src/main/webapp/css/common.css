@@ -1,0 +1,143 @@
+.div-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #e2f5f0;
+	padding: 2.5em 3em 3em 3em;
+	border-radius: .5rem;
+	border: 1px solid rgba(34, 36, 38, .15);
+}
+
+.chart-container {
+	background: #f2f2f2 !important;
+	padding: 8px;
+	margin:4px;
+	border-radius: .5rem;
+	border: 1px solid rgba(34, 36, 38, .15);
+}
+/* dataTables列内容居中 */
+table>tbody>tr>td {
+	text-align: center;
+}
+
+/* dataTables表头居中 */
+table>thead:first-child>tr:first-child>th {
+	text-align: center;
+}
+
+/* dataTables单元格的padding减小*/
+table.dataTable tbody th, table.dataTable tbody td {
+	padding: 4px 6px !important;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+	padding: 4px 6px !important;
+}
+
+/*修改layui的table样式中默认字体大小*/
+.layui-table td, .layui-table th {
+	font-size: 12px !important;
+}
+
+/*隔行变色*/
+.odd {
+	background-color: #fbfbfb !important; /* pale yellow for odd rows */
+}
+
+.even {
+	background-color: #f2f2f2 !important; /* pale blue for even rows */
+}
+
+.hover {
+	background-color: #e2e2e2 !important;
+}
+
+.select {
+	background-color: #FCE6A2 !important;
+}
+/*修改次级legend字体*/
+.small-elem-field legend {
+	font-size: 14px !important;
+	font-weight: 200 !important;
+	font-style: italic !important;
+}
+
+.layui-elem-field legend {
+	font-weight: 500
+}
+
+/*组件选择 模仿checkbox*/
+.yaezakura-component-text {
+	position: relative;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.yaezakura-component {
+	display: inline-block;
+	margin: 5px;
+	width: 100px;
+	height: 100px;
+	background: #e2e2e2;
+	border-radius: .5rem;
+	border: 1px solid rgba(34, 36, 38, .15);
+}
+
+.yaezakura-component-checked {
+	background: #5FB878;
+}
+
+.yaezakura-layui-form-mid {
+	float: right !important;
+}
+
+.hide-upload{
+	display: none !important;
+}
+.layui-form-label {
+	font-weight: 800 !important;	
+}
+
+/*覆盖layui左侧导航栏宽度*/
+
+.layui-layout-admin .layui-side {
+   width: 12% !important
+}
+
+.center-width-show{
+	width: 88% !important;
+	left: 12% !important;
+}
+
+<!--隐藏边栏css -->
+.left-menu-width-hide{
+    width: 0px !important;
+}
+.center-width-hide{
+	width: 100% !important;
+	left: 0 !important;
+}
+
+
+/*ztree ul样式*/
+
+.layui-form-pane .ztree {
+    border-radius: 0 2px 2px 0;
+}
+.ztree {
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+/*搜索栏样式*/
+.mwrap {
+    border: 1px solid #dedede;
+    background: #fff;
+    padding: 3px 3px;
+    margin-bottom: 5px;
+}
+
+
